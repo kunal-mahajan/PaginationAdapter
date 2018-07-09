@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import paginationadeptor.entella.com.paginationadeptor.component.PaginationAdapter;
+
 /**
  * Created by Kunal.Mahajan on 7/6/2018.
  */

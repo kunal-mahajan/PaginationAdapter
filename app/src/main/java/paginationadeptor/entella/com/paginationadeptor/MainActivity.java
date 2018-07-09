@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import paginationadeptor.entella.com.paginationadeptor.component.DynamicLoadingListHelper;
+
 public class MainActivity extends AppCompatActivity {
 
     private DynamicLoadingListHelper listHelper;

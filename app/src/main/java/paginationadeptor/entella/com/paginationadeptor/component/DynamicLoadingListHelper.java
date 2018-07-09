@@ -1,4 +1,4 @@
-package paginationadeptor.entella.com.paginationadeptor;
+package paginationadeptor.entella.com.paginationadeptor.component;
 
 import android.content.Context;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import java.util.List;
+
+import paginationadeptor.entella.com.paginationadeptor.NameDynamicLoadingListHealper;
 
 /**
  * Created by Kunal.Mahajan on 6/25/2018.

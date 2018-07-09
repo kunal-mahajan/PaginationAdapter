@@ -1,4 +1,4 @@
-package paginationadeptor.entella.com.paginationadeptor;
+package paginationadeptor.entella.com.paginationadeptor.component;
 
 import android.content.Context;
 import android.graphics.Typeface;
