@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadNewJob(LinearLayout llNewJobs) {
-        listHelper = new DynamicLoadingListHelper(this, llNewJobs, new NameDynamicLoadingListHealper(this), 3) {
+        listHelper = new DynamicLoadingListHelper(this, llNewJobs, new NameDynamicLoadingListHealper(this), 10) {
             int k;
 
 

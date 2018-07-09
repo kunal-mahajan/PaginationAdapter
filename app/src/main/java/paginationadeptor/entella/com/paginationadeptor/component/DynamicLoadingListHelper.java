@@ -11,8 +11,6 @@ import android.widget.ProgressBar;
 
 import java.util.List;
 
-import paginationadeptor.entella.com.paginationadeptor.NameDynamicLoadingListHealper;
-
 /**
  * Created by Kunal.Mahajan on 6/25/2018.
  */
@@ -26,7 +24,13 @@ public abstract class DynamicLoadingListHelper {
     private RecyclerView rv;
     private int totalRecords = -1;
 
-    public DynamicLoadingListHelper(Context context, LinearLayout containerLayout, NameDynamicLoadingListHealper adapter, int requestLimit) {
+    /**
+     * @param context
+     * @param containerLayout container layout may be any layout, linear, relative etc.
+     * @param adapter         reference for the adapter of your class which extends  PaginationAdapter
+     * @param requestLimit    number of elements you want to request through server
+     */
+    public DynamicLoadingListHelper(Context context, LinearLayout containerLayout, PaginationAdapter adapter, int requestLimit) {
         this.adapter = adapter;
         this.context = context;
         this.containerLayout = containerLayout;
@@ -83,7 +87,7 @@ public abstract class DynamicLoadingListHelper {
         loadData(0, requestLimit);
     }
 
-    public boolean isRecyclerScrollable() {
+    private boolean isRecyclerScrollable() {
         LinearLayoutManager layoutManager = (LinearLayoutManager) rv.getLayoutManager();
         RecyclerView.Adapter adapter = rv.getAdapter();
 
@@ -92,8 +96,20 @@ public abstract class DynamicLoadingListHelper {
         return layoutManager.findLastCompletelyVisibleItemPosition() < totalRecords;
     }
 
+    /**
+     * implement this method, it will get called when scroll reached to ProgressView i.e. loading view
+     *
+     * @param offset - starting index
+     * @param limit  - how many data need to download based upon the
+     */
     protected abstract void loadData(int offset, int limit);
 
+    /**
+     * Call this method once the data is loaded @requestLimit you passed in constructor.
+     *
+     * @param list         an array list of elements  which is recentely loaded and need to add in RecyclerView
+     * @param totalRecords what are the total numbers of records available, based upon this variable it will automatically call loadData(int offset, int limit);
+     */
     public void dataLoaded(List list, int totalRecords) {
         this.totalRecords = totalRecords;
         adapter.add(list);

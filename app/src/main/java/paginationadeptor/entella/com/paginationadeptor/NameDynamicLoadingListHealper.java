@@ -17,7 +17,7 @@ import paginationadeptor.entella.com.paginationadeptor.component.PaginationAdapt
 public class NameDynamicLoadingListHealper extends PaginationAdapter {
 
     public NameDynamicLoadingListHealper(Context applicationContext) {
-        super(applicationContext, false);
+        super(applicationContext, true);
     }
 
     @Override
