@@ -33,6 +33,10 @@ public abstract class PaginationAdapter extends RecyclerView.Adapter<ViewHolder>
     private LoadingObj loadingObj = new LoadingObj();
     private NoDataAvailableObj noDataAvailableObj = new NoDataAvailableObj();
 
+    /**
+     * @param context
+     * @param isVertical true for if you need Vertical RecyclerView, false for horizontal RecyclerView
+     */
     public PaginationAdapter(Context context, boolean isVertical) {
         this.isVertical = isVertical;
         this.context = context;
@@ -73,6 +77,12 @@ public abstract class PaginationAdapter extends RecyclerView.Adapter<ViewHolder>
             setValuesOnBind(holder, position);
     }
 
+    /**
+     * implement this method to bind the view and manage the UI Values
+     *
+     * @param holder
+     * @param position
+     */
     protected abstract void setValuesOnBind(ViewHolder holder, int position);
 
     @Override
@@ -87,7 +97,7 @@ public abstract class PaginationAdapter extends RecyclerView.Adapter<ViewHolder>
         return ITEM;
     }
 
-    public void setLoadingFinished() {
+    void setLoadingFinished() {
         records.remove(records.size() - 1);
         if (records.size() == 0) records.add(new NoDataAvailableObj());
     }
@@ -97,7 +107,7 @@ public abstract class PaginationAdapter extends RecyclerView.Adapter<ViewHolder>
         return records.size();
     }
 
-    public int getItemLoadedCount() {
+    int getItemLoadedCount() {
         int l = records.size();
         if (records.contains(loadingObj))
             l--;
@@ -108,7 +118,7 @@ public abstract class PaginationAdapter extends RecyclerView.Adapter<ViewHolder>
         return l;
     }
 
-    public void add(List list) {
+    void add(List list) {
         for (int i = 0; i < list.size(); i++) {
             records.add(records.size() - 1, list.get(i));
         }
@@ -116,11 +126,11 @@ public abstract class PaginationAdapter extends RecyclerView.Adapter<ViewHolder>
         notifyDataSetChanged();
     }
 
-    public boolean isVertical() {
+    boolean isVertical() {
         return isVertical;
     }
 
-    public ProgressBar getProgressBar() {
+    private ProgressBar getProgressBar() {
         ProgressBar progressBar = new ProgressBar(context);
         int h = isVertical ? getIntToDP(30) : ViewGroup.LayoutParams.MATCH_PARENT;
         int w = isVertical ? ViewGroup.LayoutParams.MATCH_PARENT : getIntToDP(30);
@@ -132,7 +142,7 @@ public abstract class PaginationAdapter extends RecyclerView.Adapter<ViewHolder>
         return progressBar;
     }
 
-    public TextView getNoDataTextView() {
+    private TextView getNoDataTextView() {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         TextView textView = new TextView(context);
         textView.setText(getEmptyText());
@@ -146,7 +156,7 @@ public abstract class PaginationAdapter extends RecyclerView.Adapter<ViewHolder>
     private static class LoadingObj {
     }
 
-    protected class LoadingVH extends ViewHolder {
+    private class LoadingVH extends ViewHolder {
         public LoadingVH(View itemView) {
             super(itemView);
         }
