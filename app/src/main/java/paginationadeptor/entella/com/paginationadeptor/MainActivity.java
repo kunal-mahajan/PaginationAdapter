@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             protected void loadData(final int offset, final int limit) {
-                final int totalRecords = 0;
+                final int totalRecords = 500;
 
                 new Timer().schedule(new TimerTask() {
                     @Override
