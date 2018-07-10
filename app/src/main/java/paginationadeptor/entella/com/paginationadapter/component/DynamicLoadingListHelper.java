@@ -1,4 +1,4 @@
-package paginationadeptor.entella.com.paginationadeptor.component;
+package paginationadeptor.entella.com.paginationadapter.component;
 
 import android.content.Context;
 import android.support.v7.widget.DefaultItemAnimator;

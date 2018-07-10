@@ -1,4 +1,4 @@
-package paginationadeptor.entella.com.paginationadeptor;
+package paginationadeptor.entella.com.paginationadapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,16 +8,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import paginationadeptor.entella.com.paginationadeptor.component.PaginationAdapter;
+import paginationadeptor.entella.com.paginationadapter.component.PaginationAdapter;
 
 /**
  * Created by Kunal.Mahajan on 7/6/2018.
  */
 
-public class NameDynamicLoadingListHealper extends PaginationAdapter {
+public class NameDynamicLoadingListHelper extends PaginationAdapter {
 
-    public NameDynamicLoadingListHealper(Context applicationContext) {
-        super(applicationContext, true);
+    public NameDynamicLoadingListHelper(Context applicationContext) {
+        super(applicationContext, false);
     }
 
     @Override

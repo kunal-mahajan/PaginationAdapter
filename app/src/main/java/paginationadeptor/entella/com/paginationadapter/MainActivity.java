@@ -1,4 +1,4 @@
-package paginationadeptor.entella.com.paginationadeptor;
+package paginationadeptor.entella.com.paginationadapter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import paginationadeptor.entella.com.paginationadeptor.component.DynamicLoadingListHelper;
+import paginationadeptor.entella.com.paginationadapter.component.DynamicLoadingListHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadNewJob(LinearLayout llNewJobs) {
-        listHelper = new DynamicLoadingListHelper(this, llNewJobs, new NameDynamicLoadingListHealper(this), 10) {
+        listHelper = new DynamicLoadingListHelper(this, llNewJobs, new NameDynamicLoadingListHelper(this), 3) {
             int k;
 
 

@@ -1,4 +1,4 @@
-package paginationadeptor.entella.com.paginationadeptor;
+package paginationadeptor.entella.com.paginationadapter;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
